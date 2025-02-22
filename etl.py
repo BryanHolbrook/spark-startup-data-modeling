@@ -16,8 +16,8 @@ def get_files(filepath):
 
 
 def process_song_file(cur, filepath):
-    song_files = get_files('data/song_data')
-    filepath = '/workspace/home/data/song_data/A/A/A/TRAAAMQ128F1460CD3.json'
+    #song_files = get_files('data/song_data')
+    #filepath = '/workspace/home/data/song_data/A/A/A/TRAAAMQ128F1460CD3.json'
 
     with open(filepath, 'r') as f:
         song_data = json.load(f)
@@ -35,8 +35,8 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
-    log_files = get_files('data/log_data')
-    filepath = '/workspace/home/data/log_data/2018/11/2018-11-28-events.json'
+    #log_files = get_files('data/log_data')
+    #filepath = '/workspace/home/data/log_data/2018/11/2018-11-28-events.json'
 
     with open(filepath, 'r') as f:
         log_data = [json.loads(line) for line in f]
@@ -60,6 +60,7 @@ def process_log_file(cur, filepath):
     t.dt.year,         
     t.dt.day_name()
 ]
+    time_data = list(zip(*time_data))
     column_labels = ['start_time', 'hour', 'day', 'week', 'month', 'year', 'weekday']
     time_df = pd.DataFrame(time_data, columns=column_labels).dropna()
 
